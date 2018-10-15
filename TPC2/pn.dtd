@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT prestação (titulo, processo) >
+
+<!ELEMENT titulo (#PCDATA) >
+
+<!ATTLIST processo
+            estado CDATA #REQUIRED
+            classe_pai (CDATA|hiperligação) #REQUIRED
+            código ID #REQUIRED
+            título CDATA #REQUIRED >
+
+
+<!ELEMENT processo (desc_classe, cont_aval, dec_aval) >
+
+<!ELEMENT desc_classe (descrição, notas_apli, ex_notas_apli,
+                       notas_excl, termos_índice) >
+                       
+<!ELEMENT  descrição (#PCDATA) >
+<!ELEMENT  notas_apli (ponto)+ >
+<!ELEMENT  ex_notas_apli (ponto)* >
+<!ELEMENT  notas_excl (ponto)* >
+<!ELEMENT  termos_índice (ponto)+ >
+
+
+<!ELEMENT cont_aval (tipo_proc, proc_transv, donos,
+                     tipos_int_part, proc_relac, legislação) >
+
+<!ATTLIST cont_aval
+            tipo_proc CDATA #REQUIRED
+            proc_transv CDATA #REQUIRED >
+
+<!ELEMENT donos (ponto)+ >
+<!ELEMENT tipos_int_part (definição)+ >
+<!ELEMENT proc_relac (definição)+ >
+<!ELEMENT legislação (ponto)+ >
+
+
+<!ELEMENT dec_aval (prazo_cons_admin, dest_final) >
+
+<!ELEMENT prazo_cons_admin (prazo, forma_cont, just) >
+
+<!ELEMENT prazo (#PCDATA) >
+<!ELEMENT forma_cont (#PCDATA) >
+<!ELEMENT just (definição)+ >
+
+<!ELEMENT dest_final (dest, just) >
+
+<!ELEMENT dest (#PCDATA) >
+
+<!ELEMENT definição (ponto)+ >
+<!ELEMENT ponto (#PCDATA|hiperligação)* >
+<!ELEMENT hiperligação (#PCDATA) >

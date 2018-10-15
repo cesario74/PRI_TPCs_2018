@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE manifesto SYSTEM "file:/Users/cp74/Documents/Universidade/PLC/PRI/Tp2/manifesto.dtd">
+<manifesto>
+    <meta>
+        <id>PRI2018::A73883::TP3</id>
+        <titulo>Elaboração de Website sobre o Quran</titulo>
+        <subtitulo>Relatório inserido nos trabalhos práticos da cadeira de PRI do MIEI
+            2018/19</subtitulo>
+        <dinicio>06/10/2018</dinicio>
+        <dfim>08/10/2018</dfim>
+        <supervisor>
+            <nome> José Carlos Ramalho </nome>
+            <email>jcr@di.uminho.pt</email>
+            <website>http://www4.di.uminho.pt/~jcr/</website>
+        </supervisor>
+    </meta>
+    <equipe>
+        <elemento>
+            <id>73883</id>
+            <nome>Cesário Miguel Pereira Perneta</nome>
+            <email>a73883@alunos.uminho.pt</email>
+            <foto>eu.jpeg</foto>
+        </elemento>
+    </equipe>
+    <resumo>
+        <para>
+            Neste trabalho foi pedida a criação de um <i>Website</i> do <b>Quran</b>, sobre o qual foi dado um ficheiro <b>XML</b> que continha o respetivo livro.
+        </para>
+        <para>
+            Deste modo, a elaboração do <i>Website</i> foi dividida em duas partes:
+        </para> 
+        <para>
+            - Geração do índice;
+        </para>
+        <para>
+            - Geração das páginas individuais, as quais podem ser acedidas através do índice. 
+        </para>
+    </resumo>
+    <resultados>
+        <resultado>
+            <titulo>HTML para o quran</titulo>
+            <path>Quran/index.html</path>
+        </resultado>
+        <resultado>
+            <titulo>XSL para o quran</titulo>
+            <path>quran.xsl</path>
+        </resultado>
+        <resultado>
+            <titulo>XSL para o manifesto</titulo>
+            <path>manifesto.xsl</path>
+        </resultado>
+        <resultado>
+            <titulo>XML do manifesto</titulo>
+            <path>manifesto_tp3.xml</path>
+        </resultado>
+        <resultado>
+            <titulo>HTML do manifesto</titulo>
+            <path>manifesto_tp3.html</path>
+        </resultado>
+    </resultados>
+</manifesto>

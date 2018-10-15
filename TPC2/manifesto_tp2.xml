@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE manifesto SYSTEM "file:/Users/cp74/Documents/Universidade/PLC/PRI/Tp2/manifesto.dtd">
+<manifesto>
+    <meta>
+        <id>PRI2018::A73883::TP2</id>
+        <titulo>Especificação de um DTD para um Processo de Negócio</titulo>
+        <subtitulo>Relatório inserido nos trabalhos práticos da cadeira de PRI do MIEI
+            2018/19</subtitulo>
+        <dinicio>26/09/2018</dinicio>
+        <dfim>30/09/2018</dfim>
+        <supervisor>
+            <nome> José Carlos Ramalho </nome>
+            <email>jcr@di.uminho.pt</email>
+            <website>http://www4.di.uminho.pt/~jcr/</website>
+        </supervisor>
+    </meta>
+    <equipe>
+        <elemento>
+            <id>73883</id>
+            <nome>Cesário Miguel Pereira Perneta</nome>
+            <email>a73883@alunos.uminho.pt</email>
+            <foto>eu.jpeg</foto>
+        </elemento>
+    </equipe>
+    <resumo>
+        <para>
+            Este trabalho prático teve como objetivo aprofundar os conhecimentos adquiridos nas aulas práticas da UC de PRI, acerca de dtd, xsl, xml e html.
+        </para>
+    </resumo>
+    <resultados>
+        <resultado>
+            <titulo>DTD para o processo de negócio</titulo>
+            <path>pn.dtd</path>
+        </resultado>
+        <resultado>
+            <titulo>DTD para o manifesto</titulo>
+            <path>manifesto.dtd</path>
+        </resultado>
+        <resultado>
+            <titulo>XSL para o manifesto</titulo>
+            <path>manifesto.xsl</path>
+        </resultado>
+        <resultado>
+            <titulo>XML do manifesto</titulo>
+            <path>manifesto_tp2.xml</path>
+        </resultado>
+        <resultado>
+            <titulo>HTML do manifesto</titulo>
+            <path>manifesto_tp2.html</path>
+        </resultado>
+    </resultados>
+</manifesto>
