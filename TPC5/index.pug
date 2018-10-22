@@ -8,16 +8,13 @@ block corpo
             .w3-container
                 table.w3-table.w3-bordered
                     tr
-                        th Tipo
-                        th Titulo
-                    each c
+                        th Título
+                    each c in ind.obras
                         tr
-                            td= c.tipo 
                             td
-                                ul
-                                    each a 
-                                        li
-                                            a(href='http://localhost:5000/musica/' + a.id)= a.titulo 
+                                ul.w3-ul
+                                    li
+                                        a(href='http://localhost:5000/musica/' + c.id)= c.titulo
             footer.w3-container.w3-light-grey
                 address Done by Cesário Perneta
 

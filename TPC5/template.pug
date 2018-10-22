@@ -4,39 +4,49 @@ block corpo
     .w3-container
         .w3-card-4
             header.w3-container.w3-light-grey
-                h1= music.titulo
+                h4= musica.titulo
             .w3-container
                 table.w3-table.w3-all
                     tr
-                        th Titulo
-                        td= music.titulo
+                        th Título
+                        td= musica.titulo
                     tr
-                        th Subtitulo
-                        td= music.subtitulo
+                        if musica.subtitulo
+                            th Subtítulo
+                            td= musica.subtitulo
                     tr
                         th Tipo
-                        td= music.tipo
+                        td= musica.tipo
                     tr
-                        th Compositor
-                        td= music.compositor
+                        th Compositor 
+                        td= musica.compositor
                     tr
-                        if music.arranjo
+                        if musica.arranjo
                             th Arranjo
-                            td= music.arranjo
-                    tr
-                        th Intrumentos
-                            ul
-                                each a in music.instrumentos
-                                    li a.nome
-                                    li a.partitura.path
-                                    if a.voz
-                                        li a.voz
-                                    if a.clave
-                                        li a.clave
-
+                            td= musica.arranjo
+                    tr 
+                        th Instrumentos   
+                        td
+                            ul.w3-ul 
+                                each i in musica.instrumentos
+                                    li 
+                                        table.w3-table.w3-all
+                                            tr
+                                                th Nome
+                                                td= i.nome
+                                            tr
+                                                th Partitura
+                                                td= i.partitura.path
+                                            tr
+                                                if i.voz
+                                                    th Voz 
+                                                    td= i.voz
+                                            tr
+                                                if i.clave
+                                                    th Clave
+                                                    td= i.clave
             footer.w3-container.w3-light-grey
-                    a(href='http://localhost:5000/index') 
-                        | Voltar à página principal
-                address Geardo por Musicas by cp74
-                
-                                               
+                p
+                    a(href='http://localhost:5000/index')
+                        | Voltar à Página Principal
+                address Gerado por ArquivoDeMúsicaDigital by cp.

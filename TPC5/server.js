@@ -8,50 +8,58 @@ var index = /index/
 var music = /musica/
 var dirPath = 'json/'
 var fileType = /.*\.json/
-var abrir = '{"obras": ['
-var fechar = ']}'
+const abrir = '{"obras": ['
+const fechar = ']}'
+var files = []
+var parsed = 0
 
 
 http.createServer((req, res)=>{
     var purl = url.parse(req.url, true)
     
     console.log('Recebi um pedido: ' + purl.pathname)
+    
 
-    if(index.test(purl.pathname)){
+    if(index.test(purl.pathname) && parsed==0){
+        var i = 0
         fs.readdir('json/',(erro, dados)=>{
+            for(var j = 0; j<dados.length-1; j++)
+                if(fileType.test(dados[j])){
+                    files[i]=dados[j]
+                    i++
+                }
+
             if(!erro){
-                var fd = fs.openSync('index.json', 'w')
+                var fd = fs.openSync('json/index.json', 'w')
                 var k = 0
                 fs.appendFileSync(fd, abrir, 'utf8')
-                if(fileType.test(dados[k])){
-                    var info = fs.readFileSync(dirPath+dados[k])
+                if(files.length==1){
+                    var info = fs.readFileSync(dirPath+files[k])
+                    var myObj = JSON.parse(info)
+                    fs.appendFileSync(fd, '{"tipo": "'+myObj.tipo+'", "titulo": "'+myObj.titulo+'", "id": "'+myObj._id+'"}','utf8')
+                }
+                else
+                {
+                    var info = fs.readFileSync(dirPath+files[k])
                     var myObj = JSON.parse(info)
                     fs.appendFileSync(fd, '{"tipo": "'+myObj.tipo+'", "titulo": "'+myObj.titulo+'", "id": "'+myObj._id+'"}, ','utf8')
                     k++
-                }
-                for(k; k<dados.length-1; k++){
-                    if(fileType.test(dados[k]))
-                    {
-                        var info = fs.readFileSync(dirPath+dados[k])
-                        var myObj = JSON.parse(info)
-                        fs.appendFileSync(fd, '{"tipo": "'+myObj.tipo+'", "titulo": "'+myObj.titulo+'", "id": "'+myObj._id+'"}','utf8')
-                        if(k+1 != dados.length-1)
-                            fs.appendFileSync(fd, ', ','utf8')
+                    for(k; k<files.length-1; k++){
+                        if(fileType.test(files[k]))
+                        {
+                            var info = fs.readFileSync(dirPath+files[k])
+                            var myObj = JSON.parse(info)
+                            fs.appendFileSync(fd, '{"tipo": "'+myObj.tipo+'", "titulo": "'+myObj.titulo+'", "id": "'+myObj._id+'"}, ','utf8')
+                        }
                     }
-                }
-                if(!fileType.test(dados[k]))
-                {}
-                else
-                {
-                    var info = fs.readFileSync('json/'+dados[k])
+                    var info = fs.readFileSync(dirPath+files[k])
                     var myObj = JSON.parse(info)
-                    fs.appendFileSync(fd, ', {"tipo": "'+myObj.tipo+'", "titulo": "'+myObj.titulo+'", "id": "'+myObj._id+'"}','utf8')
+                    fs.appendFileSync(fd, '{"tipo": "'+myObj.tipo+'", "titulo": "'+myObj.titulo+'", "id": "'+myObj._id+'"}','utf8')
                     fs.appendFileSync(fd, fechar, 'utf8')
-                    fs.closeSync(fd)
                 }
-                
-                fs.readFile('index.json',(erro,dados)=>{
-                    console.log('')
+                fs.closeSync(fd)
+
+                fs.readFile('json/index.json',(erro,dados)=>{
                     if(!erro){
                         var myObj = JSON.parse(dados)
                         res.write(pug.renderFile('index.pug',{ind:myObj}))
@@ -61,9 +69,21 @@ http.createServer((req, res)=>{
                     res.end()
                 })
             }
+            parsed = 1
         })
     }
-    
+
+    else if(index.test(purl.pathname) && parsed==1){
+        fs.readFile('json/index.json',(erro,dados)=>{
+            if(!erro){
+                var myObj = JSON.parse(dados)
+                res.write(pug.renderFile('index.pug',{ind:myObj}))
+            }else{
+                res.write('<p><b>ERRO: A LER O FICHEIRO INDEX.JSON')
+            }
+            res.end()
+        })
+    }
     else if(style.test(purl.pathname)){
         res.writeHead(200, {'Content-Type': 'text/css'})
         fs.readFile('estilo/w3.css', (erro, dados)=>{
@@ -82,7 +102,7 @@ http.createServer((req, res)=>{
         fs.readFile('json/'+ficheiro, (erro,dados)=>{
             if(!erro){
                 var myObj = JSON.parse(dados)
-                res.write(pug.renderFile('template.pug', {arq: myObj}))
+                res.write(pug.renderFile('template.pug', {musica: myObj}))
             }
             else
                 res.write('<p><b>Erro:</b> '+erro+'</p>')
