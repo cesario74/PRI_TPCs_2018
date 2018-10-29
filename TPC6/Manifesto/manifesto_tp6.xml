@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE manifesto SYSTEM "file:/Users/cp74/Documents/Universidade/PLC/PRI/Tp2/manifesto.dtd">
+<manifesto>
+    <meta>
+        <id>PRI2018::A73883::TP6</id>
+        <titulo>Website para Registo de Teses - Mestrado e Doutoramento</titulo>
+        <subtitulo>Relatório inserido nos trabalhos práticos da cadeira de PRI do MIEI
+            2018/19</subtitulo>
+        <dinicio>22/10/2018</dinicio>
+        <dfim>28/10/2018</dfim>
+        <supervisor>
+            <nome> José Carlos Ramalho </nome>
+            <email>jcr@di.uminho.pt</email>
+            <website>http://www4.di.uminho.pt/~jcr/</website>
+        </supervisor>
+    </meta>
+    <equipe>
+        <elemento>
+            <id>73883</id>
+            <nome>Cesário Miguel Pereira Perneta</nome>
+            <email>a73883@alunos.uminho.pt</email>
+            <foto>eu.jpeg</foto>
+        </elemento>
+    </equipe>
+    <resumo>
+        <para>
+            Neste trabalho foi pedido que fosse criado um Website para o registo de teses de mestrado e doutoramento.
+        </para>
+    </resumo>
+    <resultados>
+        <resultado>
+            <titulo>Link para o GitHub com os TPCs de PRI</titulo>
+            <path>https://github.com/cesario74/PRI_TPCs_2018/tree/master/TPC6</path>
+        </resultado>
+    </resultados>
+</manifesto>

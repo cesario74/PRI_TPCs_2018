@@ -1,0 +1,34 @@
+extends layout 
+block content
+    .w3-container
+        .w3-card-4
+            header.w3-container.w3-teal
+                h3 Lista de Teses Submetidas
+            .w3-container
+                table.w3-table-all
+                    tr
+                        th Informação Pessoal:
+                        th Nome
+                        th Número / Identificador
+                        th Curso
+                        th Instituição
+                        th Informação Tese:
+                        th Titulo da tese
+                        th Data de Entrega
+                        th Tipo
+                    each al in lista 
+                        tr
+                            td
+                            td=al.nome
+                            td=al.numero
+                            td=al.curso
+                            td=al.instituicao
+                            td
+                            td=al.titulo
+                            td=al.data
+                            td=al.tipo
+                p
+                    a(href='http://localhost:4444/pagina-inicial')
+                        | Voltar à página de Registo
+            footer.w3-container.w3-teal
+                address Gerado por formApp

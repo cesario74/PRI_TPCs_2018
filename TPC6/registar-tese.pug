@@ -1,0 +1,41 @@
+extends layout
+block content
+    .w3-container
+        .w3-card-4
+            header.w3-container.w3-teal
+                h3 Registo de Aluno
+            .w3-container
+                form.w3-container(action='/tese-submetida',method='POST')
+                    label.w3-text-teal
+                        b Nome
+                    input.w3-input.w3-border.w3-light-grey(type='text',name='nome')
+                    label.w3-text-teal
+                        b Número / Identificador
+                    input.w3-input.w3-border.w3-light-grey(type='text',name='numero')
+                    label.w3-text-teal
+                        b Curso
+                    input.w3-input.w3-border.w3-light-grey(type='text',name='curso')
+                    label.w3-text-teal
+                        b Instituição
+                    input.w3-input.w3-border.w3-light-grey(type='text',name='instituicao')
+                    label.w3-text-teal
+                        b Título da Tese
+                    input.w3-input.w3-border.w3-light-grey(type='text',name='titulo')
+                    label.w3-text-teal
+                        b Data de Entrega
+                    input.w3-input.w3-border.w3-light-grey(type='text',name='data')
+                    label.w3-text-teal
+                        b Tipo
+                    ul.w3-ul.w3-light-grey
+                        li
+                            label
+                                b Mestrado
+                            input.w3-btn.w3-light-grey(type='radio', name='tipo',value='Mestrado ')
+                        li
+                            label
+                                b Douturamento
+                            input.w3-btn.w3-teal(type='radio', name='tipo',value='Doutoramento ')
+                    br
+                    input.w3-btn.w3-blue-grey(type='submit', value='Enviar')
+            footer.w3-container.w3-teal
+                address Gerado por formApp
