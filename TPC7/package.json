@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Servidor de Upload de Ficheiros com uma página",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "CP",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "formidable": "^1.2.1",
+    "jsonfile": "^5.0.0",
+    "morgan": "^1.9.1",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {}
+}
